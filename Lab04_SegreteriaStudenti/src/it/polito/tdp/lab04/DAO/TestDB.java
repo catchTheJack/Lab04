@@ -10,6 +10,18 @@ public class TestDB {
 		
 		CorsoDAO cdao = new CorsoDAO();
 		cdao.getTuttiICorsi();
+		
+		
+		StudenteDAO sdao = new StudenteDAO();
+		System.out.println("\n");
+		System.out.println("prova metedo elencoStudenti sdao");
+		sdao.getElencoStudenti();
+		System.out.println("\n");
+		System.out.println("prova metedo elencoCorsi di sdao");
+		sdao.getElencoCorsi("146101");
+		System.out.println("\n");
+		System.out.println("\n");
+		sdao.iscrivi(146101, "Diritto commerciale");
 
 	}
 

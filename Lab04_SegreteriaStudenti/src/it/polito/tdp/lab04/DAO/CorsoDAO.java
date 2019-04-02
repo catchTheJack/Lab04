@@ -11,6 +11,7 @@ import it.polito.tdp.lab04.model.Corso;
 import it.polito.tdp.lab04.model.Studente;
 
 public class CorsoDAO {
+	
 
 	/*
 	 * Ottengo tutti i corsi salvati nel Db
@@ -38,8 +39,10 @@ public class CorsoDAO {
 
 				// Crea un nuovo JAVA Bean Corso
 				// Aggiungi il nuovo oggetto Corso alla lista corsi
+				Corso cx = new Corso(codins,numeroCrediti,nome,periodoDidattico);
+				corsi.add(cx);
+				
 			}
-
 			return corsi;
 
 		} catch (SQLException e) {
@@ -51,8 +54,18 @@ public class CorsoDAO {
 	/*
 	 * Dato un codice insegnamento, ottengo il corso
 	 */
-	public void getCorso(Corso corso) {
+	public Corso getCorso(String codiceCorso) {
 		// TODO
+		Corso cx = null;
+		List<Corso> corsi = new LinkedList<Corso>();
+		corsi= getTuttiICorsi();
+		for(Corso temp: corsi) {
+			if(temp.getCodins().compareTo(codiceCorso)==0) {
+				cx = temp;
+				break;
+			}
+		}
+		return cx;
 	}
 
 	/*
@@ -60,6 +73,8 @@ public class CorsoDAO {
 	 */
 	public void getStudentiIscrittiAlCorso(Corso corso) {
 		// TODO
+		
+		
 	}
 
 	/*
